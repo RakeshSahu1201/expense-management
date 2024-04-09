@@ -15,7 +15,6 @@ tiffin-client/.env
 tiffin-client/vite.config.js
 
 tiffin-server/node_modules
-tiffin-server/
 
 # Editor directories and files
 .vscode/*
