@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+tiffin-client/node_modules
+tiffin-client/dist
+tiffin-client/dist-ssr
+tiffin-client/*.local
+tiffin-client/.env
+tiffin-client/vite.config.js
+
+tiffin-server/node_modules
+tiffin-server/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
