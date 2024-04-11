@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 //Set up default mongoose connection
 // const mongoDBUrl = "mongodb://127.0.0.1:27017/Expense-Management-App";
 const mongoDBUrl =
-  "mongodb+srv://tempuser:temppass@cluster0.pzqcr3s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "Your_url";
 
 const config = () => {
   mongoose.connect(mongoDBUrl);
