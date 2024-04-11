@@ -18,13 +18,13 @@ const sendAttachement = async (monthly_tiffin) => {
       port: 587,
       secure: false, // Use `true` for port 465, `false` for all other ports
       auth: {
-        user: "rakkurakesh44@gmail.com",
-        pass: "eesygkxzbkogsxob",
+        user: "Your Email",
+        pass: "Your Pass",
       },
     });
     const info = await transporter.sendMail({
-      from: "rakkurakesh44@gmail.com", // sender address
-      to: "showyammato44@gmail.com", // list of receivers
+      from: "sender mail id", // sender address
+      to: "client mail id", // list of receivers
       subject: "Monthly Tiffin Payslip ✔", // Subject line
       html: message, // html body
       attachments: [
