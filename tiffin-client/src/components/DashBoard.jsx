@@ -7,7 +7,8 @@ import moment from "moment";
 import axios from "axios";
 import { useEffect } from "react";
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+const SERVER_URL =
+  import.meta.env.VITE_SERVER_URL_PROD || import.meta.env.VITE_SERVER_URL_DEV;
 
 export default function DashBoard() {
   const monthly_tiffin_init = {
@@ -35,25 +36,6 @@ export default function DashBoard() {
     localStorage.setItem("monthly_id", response.data.result._id);
     setIsActive(true);
   };
-
-  // const getCurrentMonthlyTiffinDetails = async () => {
-  //   const response = await axios.get(
-  //     `${SERVER_URL}/monthly-tiffin/` +
-  //       monthly_tiffin_init.month +
-  //       "/" +
-  //       monthly_tiffin_init.year
-  //   );
-  //   if (response.data.error) {
-  //     console.trace("error : ", response.data.error);
-  //     return;
-  //   }
-  //   setMonthlyTiffin(response.data.result);
-  //   localStorage.setItem("monthlyId", response.data.result._id);
-  // };
-
-  // useEffect(() => {
-  //   getCurrentMonthlyTiffinDetails();
-  // }, []);
 
   const getCurrentMonthlyTiffinDetails = async () => {
     const monthly_tiffin_id = localStorage.getItem("monthly_id");
@@ -131,104 +113,6 @@ export default function DashBoard() {
                         per_tiffin_price: e.target.value,
                       })
                     }
-                    type="number"
-                    sx={{ width: 80, marginLeft: 5 }}
-                    variant="standard"
-                  />
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-
-      <Grid item xs="auto">
-        <Paper
-          sx={{
-            p: 2,
-            margin: "auto",
-            maxWidth: 500,
-            flexGrow: 1,
-            backgroundColor: (theme) =>
-              theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-          }}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm container>
-              <Grid item xs container direction="column" spacing={2}>
-                <Grid item xs>
-                  <Typography gutterBottom variant="h6" component="div">
-                    Morning Tiffin Manage
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    Full resolution 1920x1080 • JPEG
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    ID: 1030114
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography sx={{ cursor: "pointer" }} variant="body2">
-                    Apply
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Grid item>
-                <Typography variant="subtitle1" component="div">
-                  <TextField
-                    label="Set-Price"
-                    id="outlined-size-small"
-                    size="small"
-                    value="70"
-                    type="number"
-                    sx={{ width: 80, marginLeft: 5 }}
-                    variant="standard"
-                  />
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-
-      <Grid item xs="auto">
-        <Paper
-          sx={{
-            p: 2,
-            margin: "auto",
-            maxWidth: 500,
-            flexGrow: 1,
-            backgroundColor: (theme) =>
-              theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-          }}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm container>
-              <Grid item xs container direction="column" spacing={2}>
-                <Grid item xs>
-                  <Typography gutterBottom variant="h6" component="div">
-                    Morning Tiffin Manage
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    Full resolution 1920x1080 • JPEG
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    ID: 1030114
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography sx={{ cursor: "pointer" }} variant="body2">
-                    Apply
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Grid item>
-                <Typography variant="subtitle1" component="div">
-                  <TextField
-                    label="Set-Price"
-                    id="outlined-size-small"
-                    size="small"
-                    value="70"
                     type="number"
                     sx={{ width: 80, marginLeft: 5 }}
                     variant="standard"

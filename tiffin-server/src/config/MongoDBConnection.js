@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 //Set up default mongoose connection
 // const mongoDBUrl = "mongodb://127.0.0.1:27017/Expense-Management-App";
-const mongoDBUrl =
-  "mongodb+srv://tempuser:temppass@cluster0.pzqcr3s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
-const config = () => {
+// const mongoDBUrl = process.env.MONGODB_URL;
+// console.trace(process.env.PORT);
+const config = (mongoDBUrl) => {
   mongoose.connect(mongoDBUrl);
   //Get the default connection
   const db = mongoose.connection;

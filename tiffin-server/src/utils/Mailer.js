@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 // async..await is not allowed in global scope, must use a wrapper
 const sendAttachement = async (monthly_tiffin) => {
@@ -7,10 +8,9 @@ const sendAttachement = async (monthly_tiffin) => {
     <b>This is monthly payslip</b><br/>
     Month : <b>${monthly_tiffin.month}, ${monthly_tiffin.year}</b><br/>
     Total Tiffin Count : <b>${monthly_tiffin.total_tiffin_count}</b><br/>
-    Total Tiffin Price : <b>${monthly_tiffin.total_tiffin_price}</b>
-    Per Tiffin Price : <b>${monthly_tiffin.per_tiffin_price}</b>
-    <br/>
-    <b>This month activation has been ended.</b>
+    Total Tiffin Price : <b>${monthly_tiffin.total_tiffin_price}</b><br/>
+    Per Tiffin Price : <b>${monthly_tiffin.per_tiffin_price}</b><br/>
+    <h3>This month activation has been ended.</h3>
   `;
   try {
     const transporter = nodemailer.createTransport({
@@ -18,13 +18,13 @@ const sendAttachement = async (monthly_tiffin) => {
       port: 587,
       secure: false, // Use `true` for port 465, `false` for all other ports
       auth: {
-        user: "rakkurakesh44@gmail.com",
-        pass: "eesygkxzbkogsxob",
+        user: process.env.APP_MAIL_ID,
+        pass: process.env.APP_PASSWORD,
       },
     });
     const info = await transporter.sendMail({
-      from: "rakkurakesh44@gmail.com", // sender address
-      to: "showyammato44@gmail.com", // list of receivers
+      from: process.env.SENDER_MAIL_ID, // sender address
+      to: process.env.CLIENT_MAIL_ID, // list of receivers
       subject: "Monthly Tiffin Payslip ✔", // Subject line
       html: message, // html body
       attachments: [

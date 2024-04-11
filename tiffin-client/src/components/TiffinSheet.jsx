@@ -16,17 +16,14 @@ import TiffinDetails from "./TiffinDetails";
 import axios from "axios";
 import DatePicker from "react-multi-date-picker";
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+const SERVER_URL = import.meta.env.VITE_SERVER_URL_PROD || import.meta.env.VITE_SERVER_URL_DEV;
 
 export default function TiffinSheet(props) {
-  console.trace("props : ", props);
-  let shift = props.day_time?.toUpperCase();
   const monthly_id = localStorage.getItem("monthly_id");
   const tiffin_init = {
     count: 0,
     comment: "",
     date: new Date(),
-    day_time: shift,
     price: 0,
     monthly_tiffin_id: monthly_id,
   };
@@ -62,6 +59,7 @@ export default function TiffinSheet(props) {
 
   useEffect(() => {
     getTiffinListByMonthlyId(props.day_time);
+    setTiffin({ ...tiffin, day_time: props.day_time?.toUpperCase() });
   }, [props.day_time]);
 
   return (
