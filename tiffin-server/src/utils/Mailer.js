@@ -7,7 +7,7 @@ const sendAttachement = async (monthly_tiffin) => {
     <b>This is monthly payslip</b><br/>
     Month : <b>${monthly_tiffin.month}, ${monthly_tiffin.year}</b><br/>
     Total Tiffin Count : <b>${monthly_tiffin.total_tiffin_count}</b><br/>
-    Total Tiffin Price : <b>${monthly_tiffin.total_tiffin_price}</b>
+    Total Tiffin Price : <b>${monthly_tiffin.total_tiffin_price}</b><br/>
     Per Tiffin Price : <b>${monthly_tiffin.per_tiffin_price}</b>
     <br/>
     <b>This month activation has been ended.</b>
